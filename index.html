@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Think Green — Plant Today, Save Tomorrow | Thinny</title>
+  <meta name="description" content="Think Green (a.k.a. Thinny) is a sustainability company inspiring and enabling communities to plant today and save tomorrow. Explore our programs, impact, and ways to get involved." />
+  <meta name="theme-color" content="#0f6b2e" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Think Green — Plant Today, Save Tomorrow" />
+  <meta property="og:description" content="Programs, projects, and stories from Think Green (Thinny) — a company dedicated to reforestation, clean energy literacy, and circular economy solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0c1210;
+      --card: #0f1814;
+      --muted: #9cc9a6;
+      --text: #e7f6ea;
+      --accent: #2dd477; /* light green */
+      --accent-2: #10b981; /* emerald */
+      --line: rgba(255,255,255,0.08);
+      --ring: rgba(45,212,119,0.35);
+      --warning: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; color: var(--text); background: radial-gradient(1200px 600px at 80% -20%, rgba(16,185,129,.18), transparent 60%),
+      radial-gradient(1000px 500px at -20% -20%, rgba(45,212,119,.12), transparent 60%),
+      var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; border-radius: 16px; }
+    header {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(150%) blur(10px);
+      background: rgba(12,18,16,0.7); border-bottom: 1px solid var(--line);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .3px; }
+    .brand svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .nav-links a { padding: 8px 12px; border-radius: 999px; }
+    .nav-links a.cta { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #062c16; font-weight: 700; box-shadow: 0 8px 20px rgba(16,185,129,0.25); }
+    .hamburger { display: none; background: none; border: 0; color: var(--text); font-size: 1.5rem; }
+
+    /* Hero */
+    .hero { padding: 72px 0 56px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: center; }
+    .hero h1 { grid-column: span 7; font-family: "Playfair Display", serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 1.1; margin: 0 0 10px; }
+    .hero p { grid-column: span 7; font-size: clamp(1rem, 1.4vw, 1.2rem); color: #cce8d3; margin: 0 0 18px; }
+    .hero-cta { grid-column: span 7; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display:inline-flex; align-items:center; gap:10px; border:1px solid var(--line); padding:12px 16px; border-radius:14px; color:var(--text); background: #0e1512; }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#052712; border-color: transparent; font-weight:800; }
+    .btn:hover { box-shadow: 0 6px 18px var(--ring); transform: translateY(-1px); }
+    .hero-visual { grid-column: 8 / span 5; }
+    .chip { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:#cfead6; font-size:.9rem; background: #0f1814; }
+
+    /* Section */
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
+    h2 { font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 2.6vw, 2.4rem); margin: 0 0 18px; }
+    .subhead { color:#bfe4c8; margin: -6px 0 24px; font-size: 1rem; }
+
+    .cards { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card { grid-column: span 4; background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent), var(--card); border:1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+    .card h3 { margin: 6px 0 8px; font-size: 1.2rem; }
+    .card p { color:#cce8d3; font-size: .98rem; }
+
+    .split { display:grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items:center; }
+    .split > .text { grid-column: span 6; }
+    .split > .media { grid-column: span 6; }
+
+    .metrics { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .metric { background: var(--card); border:1px solid var(--line); border-radius: 16px; padding: 16px; text-align:center; }
+    .metric .num { font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--accent); }
+    .metric .label { color:#cce8d3; }
+
+    .timeline { position: relative; margin: 24px 0; padding-left: 24px; }
+    .timeline::before { content: ""; position:absolute; left:10px; top:0; bottom:0; width:2px; background: linear-gradient(var(--accent-2), transparent); }
+    .event { margin: 18px 0; padding-left: 12px; }
+
+    .gallery { display:grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+    .gallery img { grid-column: span 4; }
+
+    .testimonials { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .quote { grid-column: span 6; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+    .quote p { font-size: 1rem; color:#d7f1dd; }
+
+    .accordion { border:1px solid var(--line); border-radius: 14px; overflow: hidden; }
+    .accordion details { border-bottom: 1px solid var(--line); background: #0f1814; }
+    .accordion summary { list-style:none; cursor:pointer; padding: 12px 16px; font-weight: 600; }
+    .accordion summary::-webkit-details-marker { display:none; }
+    .accordion .content { padding: 0 16px 16px; color:#cfead6; }
+
+    form { display:grid; gap: 12px; }
+    input, textarea, select { background: #0c1411; border:1px solid var(--line); border-radius: 12px; padding: 12px; color: var(--text); }
+    input:focus, textarea:focus, select:focus { outline: 2px solid var(--ring); border-color: transparent; }
+    .inline { display:flex; gap: 12px; flex-wrap:wrap; }
+
+    footer { padding: 32px 0 48px; border-top: 1px solid var(--line); color:#c7e6cf; }
+    .cols { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .col { grid-column: span 3; }
+    .tiny { font-size: .9rem; color:#a6d9b3; }
+
+    .badge { font-weight:700; font-size:.9rem; color:#08361a; padding:6px 10px; border-radius:999px; background: linear-gradient(135deg, #bbf7d0, #86efac); }
+    .tag { display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:999px; margin:4px 6px 0 0; color:#cfead6; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid, .cards, .split, .cols, .testimonials, .gallery { grid-template-columns: 1fr; }
+      .card, .quote, .col, .hero h1, .hero p, .hero-cta, .hero-visual, .split > .text, .split > .media { grid-column: 1 / -1; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display:none; }
+      .hamburger { display:block; }
+    }
+  </style>
+  <script>
+    // Respect reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function toggleMenu(){
+      const links = document.querySelector('.nav-links');
+      if(!links) return;
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.gap = '10px';
+    }
+
+    function handleSignup(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const ok = data.name && data.email && /@/.test(data.email);
+      const output = document.getElementById('signup-output');
+      if(!ok){ output.textContent = 'Please enter a valid name and email.'; output.style.color = '#fca5a5'; return; }
+      output.textContent = `Thanks, ${data.name}! We\'ll reach out at ${data.email}.`;
+      output.style.color = '#bbf7d0';
+      form.reset();
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('form.needs-validate').forEach(f=>f.addEventListener('submit', handleSignup));
+    })
+  </script>
+</head>
+<body>
+  <a class="chip" href="#main" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden">Skip to content</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <div class="brand" aria-label="Think Green home">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22c5 0 9-4 9-9 0-4.5-3.5-8.5-8-8.9V2a1 1 0 0 0-2 0v2.1C6.5 4.5 3 8.5 3 13c0 5 4 9 9 9Z" stroke="#2dd477" stroke-width="1.5"/><path d="M8 14c1.5-3.5 4.5-5.5 8-6-2 2.5-3 5.5-3 9-1.5-1.5-3-2.5-5-3Z" fill="#10b981"/></svg>
+        <span>Think Green</span>
+        <span class="badge">Plant Today, Save Tomorrow</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#programs">Programs</a>
+        <a href="#impact">Impact</a>
+        <a href="#projects">Projects</a>
+        <a href="#stories">Stories</a>
+        <a href="#faq">FAQ</a>
+        <a class="cta" href="#join">Join Thinny</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="chip" aria-label="Tagline">We call ourselves Thinny 🌱</div>
+        <h1>We help communities <em>plant today</em> so the planet can <strong>thrive tomorrow</strong>.</h1>
+        <p>
+          Think Green (nicknamed <strong>Thinny</strong>) is a mission-driven company creating simple, joyful ways to take climate action: community tree-planting, clean energy literacy, and circular economy initiatives.
+          Our approach blends local partnerships, hands‑on education, and open technology to restore ecosystems and livelihoods.
+        </p>
+        <div class="hero-cta">
+          <a href="#join" class="btn primary">Get Involved</a>
+          <a href="#about" class="btn">What makes us different</a>
+        </div>
+        <div class="hero-visual">
+          <img alt="Community planting trees at sunrise" src="https://images.unsplash.com/photo-1523978591478-c753949ff840?q=80&w=1200&auto=format&fit=crop" />
+          <div class="tiny" style="margin-top:8px">Photo: community volunteers on a Thinny Green Saturday</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container split">
+        <div class="text">
+          <h2>Who we are</h2>
+          <p class="subhead">A community-powered sustainability company.</p>
+          <p>
+            Founded on the belief that <em>every seed is a promise</em>, Think Green partners with schools, farmers, and local leaders to grow shade, food security, and economic opportunity.
+            We design programs that are affordable, measurable, and easy to replicate—from urban pocket forests to rural watershed protection.
+          </p>
+          <div class="cards" aria-label="Mission pillars">
+            <article class="card">
+              <h3>Reforest & Restore</h3>
+              <p>Native species, seed banks, and assisted natural regeneration to bring back biodiversity corridors and resilient soils.</p>
+            </article>
+            <article class="card">
+              <h3>Teach & Empower</h3>
+              <p>Hands-on learning through Thinny Labs: climate clubs, maker kits, and curricula for schools and youth groups.</p>
+            </article>
+            <article class="card">
+              <h3>Close the Loop</h3>
+              <p>Compost markets, repair cafés, and circular design sprints that turn waste into local value.</p>
+            </article>
+          </div>
+        </div>
+        <div class="media">
+          <img alt="Students learning about seedlings" src="https://images.unsplash.com/photo-1465406325903-9d93ee82f1a6?q=80&w=1200&auto=format&fit=crop" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs">
+      <div class="container">
+        <h2>Programs that grow with you</h2>
+        <p class="subhead">Designed for neighborhoods, campuses, farms, and municipalities.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Green Saturdays</h3>
+            <p>Monthly community plant‑a‑thons: native trees, edible gardens, and street shade. We provide seedlings, tools, and training; you bring neighbors and smiles.</p>
+            <span class="tag">Native trees</span>
+            <span class="tag">Pocket forests</span>
+            <span class="tag">Urban greening</span>
+          </article>
+          <article class="card">
+            <h3>Thinny Labs</h3>
+            <p>STEM kits and workshops that teach solar basics, composting, and water harvesting. Perfect for classrooms, youth clubs, and makerspaces.</p>
+            <span class="tag">Education</span>
+            <span class="tag">DIY</span>
+            <span class="tag">Teacher guides</span>
+          </article>
+          <article class="card">
+            <h3>Agroforestry Partners</h3>
+            <p>Long‑term support for farmers adopting tree‑based systems—intercropping, windbreaks, and soil regeneration with locally adapted species.</p>
+            <span class="tag">Farmer first</span>
+            <span class="tag">Climate‑smart</span>
+            <span class="tag">Livelihoods</span>
+          </article>
+          <article class="card">
+            <h3>Water & Soil Care</h3>
+            <p>Simple rainwater harvesting, swales, and compost hubs to keep landscapes hydrated and fertile through the dry season.</p>
+            <span class="tag">Water security</span>
+            <span class="tag">Composting</span>
+          </article>
+          <article class="card">
+            <h3>Clean Energy Literacy</h3>
+            <p>Community demos of solar lanterns, cookstoves, and micro‑grids, paired with safety and maintenance training.</p>
+            <span class="tag">Solar 101</span>
+            <span class="tag">Efficiency</span>
+          </article>
+          <article class="card">
+            <h3>Circular Clinics</h3>
+            <p>Pop‑up repair cafés and exchange markets that keep devices and textiles in use—and out of landfills.</p>
+            <span class="tag">Repair</span>
+            <span class="tag">Reuse</span>
+            <span class="tag">Local jobs</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact">
+      <div class="container">
+        <h2>Impact that compounds</h2>
+        <p class="subhead">We measure what matters: trees that survive, people empowered, and ecosystems recovered.</p>
+        <div class="metrics" role="list" aria-label="Impact metrics">
+          <div class="metric" role="listitem"><div class="num">> 250,000</div><div class="label">seedlings raised since 2019</div></div>
+          <div class="metric" role="listitem"><div class="num">89%</div><div class="label">12‑month tree survival rate</div></div>
+          <div class="metric" role="listitem"><div class="num">1,200+</div><div class="label">youth trained via Thinny Labs</div></div>
+          <div class="metric" role="listitem"><div class="num">34</div><div class="label">active community partners</div></div>
+        </div>
+        <div class="timeline" aria-label="Milestones">
+          <div class="event"><strong>2025:</strong> Launched Circular Clinics network; 5 towns, 2,000 kg of items repaired/reused.</div>
+          <div class="event"><strong>2024:</strong> Expanded Agroforestry Partners to semi‑arid regions with drought‑tolerant species.</div>
+          <div class="event"><strong>2023:</strong> Introduced Thinny Labs with solar, compost, and water‑care kits.</div>
+          <div class="event"><strong>2019:</strong> First Green Saturday—120 neighbors, 500 seedlings, one unforgettable sunrise.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS / CASE STUDIES -->
+    <section id="projects">
+      <div class="container">
+        <h2>Featured projects</h2>
+        <p class="subhead">A few detailed snapshots from the field.</p>
+        <div class="split">
+          <div class="media">
+            <img alt="Dense microforest along a walkway" src="https://images.unsplash.com/photo-1535350356005-fd52b3b524b0?q=80&w=1200&auto=format&fit=crop" />
+          </div>
+          <div class="text">
+            <h3>Makutupora Microforest</h3>
+            <p>Using the Miyawaki method and community watering rosters, we transformed a dusty verge into a thriving pocket forest. 2,400 native saplings, 32 species, and a living outdoor classroom for nearby schools.</p>
+            <ul>
+              <li><strong>Outcome:</strong> 92% survival after first dry season</li>
+              <li><strong>Co‑benefits:</strong> Cooler walkways, pollinator habitat, and compost hub for leaf litter</li>
+              <li><strong>Partners:</strong> Ward office, three schools, and youth volunteers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="split" style="margin-top:18px">
+          <div class="text">
+            <h3>Agroforestry for Rain‑fed Maize</h3>
+            <p>With farmer field schools, we introduced nitrogen‑fixing trees and contour hedgerows. Soil moisture increased, wind damage decreased, and yields stabilized through erratic rains.</p>
+            <ul>
+              <li><strong>Outcome:</strong> 18–24% average yield improvement</li>
+              <li><strong>Co‑benefits:</strong> Firewood from prunings and improved soil organic matter</li>
+              <li><strong>Approach:</strong> Start small, iterate, scale with neighbors</li>
+            </ul>
+          </div>
+          <div class="media">
+            <img alt="Farmer field with contour hedgerows" src="https://images.unsplash.com/photo-1566195992011-5f6b21e5e6d4?q=80&w=1200&auto=format&fit=crop" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORIES / BLOG -->
+    <section id="stories">
+      <div class="container">
+        <h2>Stories from the Thinny trail</h2>
+        <p class="subhead">People and places at the heart of our work.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>The seed‑saving aunties</h3>
+            <p>Meet the powerhouse group collecting and cataloging local seeds—our living library against climate shocks.</p>
+            <a class="btn" href="#">Read story</a>
+          </article>
+          <article class="card">
+            <h3>How a compost hub cooled a street</h3>
+            <p>From smelly dumpsite to shady corner park—neighbors share how small, steady actions multiplied.</p>
+            <a class="btn" href="#">Read story</a>
+          </article>
+          <article class="card">
+            <h3>Thinny Labs in a box</h3>
+            <p>Teachers swap tips on making solar and soil lessons stick—no fancy equipment required.</p>
+            <a class="btn" href="#">Read story</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section>
+      <div class="container">
+        <h2>Field gallery</h2>
+        <p class="subhead">Scenes that make us smile.</p>
+        <div class="gallery">
+          <img alt="Hands holding seedlings" src="https://images.unsplash.com/photo-1524592714635-d77511a4834d?q=80&w=1200&auto=format&fit=crop" />
+          <img alt="Volunteers planting" src="https://images.unsplash.com/photo-1465406380756-c41f2f06abb2?q=80&w=1200&auto=format&fit=crop" />
+          <img alt="Sunlight through trees" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS / BADGES -->
+    <section>
+      <div class="container">
+        <h2>Friends & partners</h2>
+        <p class="subhead">We go farther together.</p>
+        <div class="inline">
+          <span class="tag">Schools & Universities</span>
+          <span class="tag">Ward & Village Offices</span>
+          <span class="tag">Farmer Groups</span>
+          <span class="tag">Youth Clubs</span>
+          <span class="tag">Local Businesses</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN / CTA -->
+    <section id="join">
+      <div class="container split">
+        <div class="text">
+          <h2>Join Thinny</h2>
+          <p class="subhead">Volunteers, donors, and partners—there’s a role for everyone.</p>
+          <form class="needs-validate" aria-label="Sign up form">
+            <div class="inline">
+              <input type="text" name="name" placeholder="Your name" aria-label="Name" required />
+              <input type="email" name="email" placeholder="Email" aria-label="Email" required />
+            </div>
+            <select name="interest" aria-label="How would you like to help?">
+              <option value="volunteer">I want to volunteer</option>
+              <option value="donate">I want to donate</option>
+              <option value="partner">Let’s partner</option>
+              <option value="learn">Send me learning resources</option>
+            </select>
+            <textarea name="message" rows="4" placeholder="Tell us about yourself or your idea (optional)"></textarea>
+            <button class="btn primary" type="submit">Sign me up</button>
+            <div id="signup-output" class="tiny" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+        <div class="media">
+          <div class="card">
+            <h3>Why Thinny?</h3>
+            <ul>
+              <li>Local species and knowledge first</li>
+              <li>Measurable survival and maintenance</li>
+              <li>Open playbooks anyone can reuse</li>
+              <li>Joyful, community‑led action</li>
+            </ul>
+            <p class="tiny">We’re committed to transparency and publish our methods, budgets, and lessons learned.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2>Questions we hear a lot</h2>
+        <div class="accordion" role="list">
+          <details role="listitem">
+            <summary>Are donations tax‑deductible?</summary>
+            <div class="content">Donations support our non‑profit projects and community partners. Receipts include our registration details for your records (jurisdiction dependent).</div>
+          </details>
+          <details role="listitem">
+            <summary>How do you choose tree species?</summary>
+            <div class="content">With local botanists and elders we prioritize native, drought‑tolerant species that support biodiversity and livelihoods.</div>
+          </details>
+          <details role="listitem">
+            <summary>Can Thinny help my school or farm?</summary>
+            <div class="content">Yes. We start with a site walk, goals, and a simple plan. Email us with your location and needs to begin.</div>
+          </details>
+          <details role="listitem">
+            <summary>Do you track impact over time?</summary>
+            <div class="content">We revisit sites, survey survival rates, and publish open dashboards so communities can see progress and contribute data.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container split">
+        <div class="text">
+          <h2>Contact</h2>
+          <p class="subhead">Let’s plant an idea together.</p>
+          <p class="tiny">Email: hello@thinkgreen.example · Phone/WhatsApp: +255 700 000 000 · Address: Your City, Your Country</p>
+        </div>
+        <div class="media">
+          <div class="cards">
+            <div class="card"><h3>Press</h3><p>Reach out for interviews, photos, or site visits.</p></div>
+            <div class="card"><h3>Vendors</h3><p>Seedlings, tools, compost—show us your sustainable products.</p></div>
+            <div class="card"><h3>Careers</h3><p>We post roles seasonally. Volunteers welcome year‑round.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container cols">
+      <div class="col">
+        <div class="brand"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22c5 0 9-4 9-9 0-4.5-3.5-8.5-8-8.9V2a1 1 0 0 0-2 0v2.1C6.5 4.5 3 8.5 3 13c0 5 4 9 9 9Z" stroke="#2dd477" stroke-width="1.5"/><path d="M8 14c1.5-3.5 4.5-5.5 8-6-2 2.5-3 5.5-3 9-1.5-1.5-3-2.5-5-3Z" fill="#10b981"/></svg><span>Think Green</span></div>
+        <p class="tiny">© <span id="y"></span> Think Green (Thinny). Plant today, save tomorrow.</p>
+      </div>
+      <div class="col">
+        <h4>Explore</h4>
+        <p class="tiny"><a href="#programs">Programs</a> · <a href="#impact">Impact</a> · <a href="#projects">Projects</a> · <a href="#stories">Stories</a></p>
+      </div>
+      <div class="col">
+        <h4>Get involved</h4>
+        <p class="tiny"><a href="#join">Volunteer</a> · <a href="#join">Donate</a> · <a href="#join">Partner</a></p>
+      </div>
+      <div class="col">
+        <h4>Follow</h4>
+        <p class="tiny"><a href="#">Instagram</a> · <a href="#">YouTube</a> · <a href="#">Newsletter</a></p>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Think Green",
+    "alternateName": "Thinny",
+    "url": "https://thinkgreen.example",
+    "logo": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=400&auto=format&fit=crop",
+    "sameAs": [
+      "https://instagram.com/thinkgreen",
+      "https://youtube.com/@thinkgreen"
+    ],
+    "description": "Think Green (Thinny) helps communities plant today and save tomorrow through reforestation, education, and circular economy programs.",
+    "foundingDate": "2019",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@thinkgreen.example"
+    }
+  }
+  </script>
+</body>
+</html>
