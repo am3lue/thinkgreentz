@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Think Green — Plant Today, Save Tomorrow | Thinny</title>
+  <title>Think Green Tanzania— Our Environment, Our World | Thinny</title>
   <meta name="description" content="Think Green (a.k.a. Thinny) is a sustainability company inspiring and enabling communities to plant today and save tomorrow. Explore our programs, impact, and ways to get involved." />
   <meta name="theme-color" content="#0f6b2e" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Think Green — Plant Today, Save Tomorrow" />
+  <meta property="og:title" content="Think Green — Our Environment, Our World" />
   <meta property="og:description" content="Programs, projects, and stories from Think Green (Thinny) — a company dedicated to reforestation, clean energy literacy, and circular economy solutions." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop" />
@@ -30,21 +30,46 @@
       --ring: rgba(45,212,119,0.35);
       --warning: #f59e0b;
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+
+    * {
+    box-sizing: border-box;
+    }
+
+    html, body {
+    height: 100%;
+    }
+
+
     body {
-      margin: 0; color: var(--text); background: radial-gradient(1200px 600px at 80% -20%, rgba(16,185,129,.18), transparent 60%),
-      radial-gradient(1000px 500px at -20% -20%, rgba(45,212,119,.12), transparent 60%),
-      var(--bg);
+      margin: 0;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 80% -20%, rgba(16,185,129,.18), transparent 60%),radial-gradient(1000px 500px at -20% -20%, rgba(45,212,119,.12), transparent 60%), var(--bg);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       line-height: 1.6;
+      }
+
+    a {
+    color: var(--accent);
+    text-decoration: none;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    img { max-width: 100%; height: auto; border-radius: 16px; }
+
+    a:hover {
+    text-decoration: underline;
+    }
+
+    img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    }
+
     header {
-      position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(150%) blur(10px);
-      background: rgba(12,18,16,0.7); border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(150%) blur(10px);
+      background: rgba(12,18,16,0.7);
+      border-bottom: 1px solid var(--line);
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
@@ -65,56 +90,244 @@
     .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#052712; border-color: transparent; font-weight:800; }
     .btn:hover { box-shadow: 0 6px 18px var(--ring); transform: translateY(-1px); }
     .hero-visual { grid-column: 8 / span 5; }
-    .chip { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:#cfead6; font-size:.9rem; background: #0f1814; }
+    .chip { display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:#cfead6;
+    font-size:.9rem;
+    background: #0f1814;
+    }
 
     /* Section */
-    section { padding: 56px 0; border-top: 1px solid var(--line); }
-    h2 { font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 2.6vw, 2.4rem); margin: 0 0 18px; }
-    .subhead { color:#bfe4c8; margin: -6px 0 24px; font-size: 1rem; }
+    section {
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    }
 
-    .cards { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
-    .card { grid-column: span 4; background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent), var(--card); border:1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
-    .card h3 { margin: 6px 0 8px; font-size: 1.2rem; }
-    .card p { color:#cce8d3; font-size: .98rem; }
+    h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+    margin: 0 0 18px;
+    }
 
-    .split { display:grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items:center; }
-    .split > .text { grid-column: span 6; }
-    .split > .media { grid-column: span 6; }
+    .subhead {
+    color:#bfe4c8;
+    margin: -6px 0 24px;
+    font-size: 1rem;
+    }
 
-    .metrics { display:grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .metric { background: var(--card); border:1px solid var(--line); border-radius: 16px; padding: 16px; text-align:center; }
-    .metric .num { font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--accent); }
-    .metric .label { color:#cce8d3; }
+    .cards {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 18px;
+    }
 
-    .timeline { position: relative; margin: 24px 0; padding-left: 24px; }
-    .timeline::before { content: ""; position:absolute; left:10px; top:0; bottom:0; width:2px; background: linear-gradient(var(--accent-2), transparent); }
-    .event { margin: 18px 0; padding-left: 12px; }
+    .card {
+    grid-column: span 4;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent), var(--card);
+    border:1px solid var(--line);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
 
-    .gallery { display:grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
-    .gallery img { grid-column: span 4; }
+    .card h3 {
+    margin: 6px 0 8px;
+    font-size: 1.2rem;
+    }
 
-    .testimonials { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
-    .quote { grid-column: span 6; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
-    .quote p { font-size: 1rem; color:#d7f1dd; }
+    .card p {
+    color:#cce8d3;
+    font-size: .98rem;
+    }
 
-    .accordion { border:1px solid var(--line); border-radius: 14px; overflow: hidden; }
-    .accordion details { border-bottom: 1px solid var(--line); background: #0f1814; }
-    .accordion summary { list-style:none; cursor:pointer; padding: 12px 16px; font-weight: 600; }
-    .accordion summary::-webkit-details-marker { display:none; }
-    .accordion .content { padding: 0 16px 16px; color:#cfead6; }
+    .split {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    align-items:center;
+    }
 
-    form { display:grid; gap: 12px; }
-    input, textarea, select { background: #0c1411; border:1px solid var(--line); border-radius: 12px; padding: 12px; color: var(--text); }
-    input:focus, textarea:focus, select:focus { outline: 2px solid var(--ring); border-color: transparent; }
-    .inline { display:flex; gap: 12px; flex-wrap:wrap; }
+    .split > .text {
+    grid-column: span 6;
+    }
 
-    footer { padding: 32px 0 48px; border-top: 1px solid var(--line); color:#c7e6cf; }
-    .cols { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
-    .col { grid-column: span 3; }
-    .tiny { font-size: .9rem; color:#a6d9b3; }
+    .split > .media {
+    grid-column: span 6;
+    }
 
-    .badge { font-weight:700; font-size:.9rem; color:#08361a; padding:6px 10px; border-radius:999px; background: linear-gradient(135deg, #bbf7d0, #86efac); }
-    .tag { display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:999px; margin:4px 6px 0 0; color:#cfead6; }
+
+    .metrics {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    }
+
+    .metric {
+    background: var(--card);
+    border:1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    text-align:center;
+    }
+
+    .metric .num {
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--accent);
+    }
+
+    .metric .label {
+    color:#cce8d3;
+    }
+
+
+    .timeline {
+    position: relative;
+    margin: 24px 0;
+    padding-left: 24px;
+    }
+
+    .timeline::before {
+    content: "";
+    position:absolute;
+    left:10px;
+    top:0;
+    bottom:0;
+    width:2px;
+    background: linear-gradient(var(--accent-2), transparent);
+    }
+
+    .event {
+    margin: 18px 0;
+    padding-left: 12px;
+    }
+
+
+    .gallery {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px;
+    }
+
+    .gallery img {
+    grid-column: span 4;
+    }
+
+    .testimonials {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 18px;
+    }
+
+    .quote {
+    grid-column: span 6;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+    }
+
+    .quote p {
+    font-size: 1rem;
+    color:#d7f1dd;
+    }
+
+    .accordion {
+    border:1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    }
+
+    .accordion details {
+    border-bottom: 1px solid var(--line);
+    background: #0f1814;
+    }
+
+    .accordion summary {
+    list-style:none;
+    cursor:pointer;
+    padding: 12px 16px;
+    font-weight: 600;
+    }
+
+    .accordion summary::-webkit-details-marker {
+    display:none;
+    }
+
+    .accordion .content {
+    padding: 0 16px 16px;
+    color:#cfead6;
+    }
+
+
+    form {
+    display:grid;
+    gap: 12px;
+    }
+
+    input, textarea, select {
+    background: #0c1411;
+    border:1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    color: var(--text);
+    }
+
+    input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--ring);
+    border-color: transparent;
+    }
+
+    .inline {
+    display:flex;
+    gap: 12px;
+    flex-wrap:wrap;
+    }
+
+
+    footer {
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--line);
+    color:#c7e6cf;
+    }
+
+    .cols {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 18px;
+    }
+
+    .col {
+    grid-column: span 3;
+    }
+
+    .tiny {
+    font-size: .9rem;
+    color:#a6d9b3;
+    }
+
+
+    .badge {
+    font-weight:700;
+    font-size:.9rem;
+    color:#08361a;
+    padding:6px 10px;
+    border-radius:999px;
+    background: linear-gradient(135deg, #bbf7d0, #86efac);
+    }
+
+    .tag {
+    display:inline-block;
+    padding:6px 10px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    margin:4px 6px 0 0;
+    color:#cfead6;
+    }
 
     /* Responsive */
     @media (max-width: 980px) {
@@ -161,7 +374,7 @@
       <div class="brand" aria-label="Think Green home">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22c5 0 9-4 9-9 0-4.5-3.5-8.5-8-8.9V2a1 1 0 0 0-2 0v2.1C6.5 4.5 3 8.5 3 13c0 5 4 9 9 9Z" stroke="#2dd477" stroke-width="1.5"/><path d="M8 14c1.5-3.5 4.5-5.5 8-6-2 2.5-3 5.5-3 9-1.5-1.5-3-2.5-5-3Z" fill="#10b981"/></svg>
         <span>Think Green</span>
-        <span class="badge">Plant Today, Save Tomorrow</span>
+        <span class="badge">Our Environment, Our Home</span>
       </div>
       <nav class="nav-links">
         <a href="#programs">Programs</a>
@@ -179,11 +392,10 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
-        <div class="chip" aria-label="Tagline">We call ourselves Thinny 🌱</div>
+        <!--<div class="chip" aria-label="Tagline">We call ourselves Thinny 🌱</div>-->
         <h1>We help communities <em>plant today</em> so the planet can <strong>thrive tomorrow</strong>.</h1>
         <p>
-          Think Green (nicknamed <strong>Thinny</strong>) is a mission-driven company creating simple, joyful ways to take climate action: community tree-planting, clean energy literacy, and circular economy initiatives.
-          Our approach blends local partnerships, hands‑on education, and open technology to restore ecosystems and livelihoods.
+          Think Green (nicknamed <strong>Thinny</strong>) THINK GREEN is a bold, youth-led environmental organization rooted in Dar es Salaam, Tanzania, with a mission to inspire, educate, and empower communities toward a cleaner, greener, and more sustainable future.
         </p>
         <div class="hero-cta">
           <a href="#join" class="btn primary">Get Involved</a>
@@ -197,35 +409,51 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about">
-      <div class="container split">
-        <div class="text">
-          <h2>Who we are</h2>
-          <p class="subhead">A community-powered sustainability company.</p>
-          <p>
-            Founded on the belief that <em>every seed is a promise</em>, Think Green partners with schools, farmers, and local leaders to grow shade, food security, and economic opportunity.
-            We design programs that are affordable, measurable, and easy to replicate—from urban pocket forests to rural watershed protection.
-          </p>
-          <div class="cards" aria-label="Mission pillars">
-            <article class="card">
-              <h3>Reforest & Restore</h3>
-              <p>Native species, seed banks, and assisted natural regeneration to bring back biodiversity corridors and resilient soils.</p>
-            </article>
-            <article class="card">
-              <h3>Teach & Empower</h3>
-              <p>Hands-on learning through Thinny Labs: climate clubs, maker kits, and curricula for schools and youth groups.</p>
-            </article>
-            <article class="card">
-              <h3>Close the Loop</h3>
-              <p>Compost markets, repair cafés, and circular design sprints that turn waste into local value.</p>
-            </article>
+    <section id="about" class="bg-green-50 py-16">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2 text-gray-800">
+            <h2 class="text-4xl font-bold mb-4 text-green-700">About Us – THINK GREEN</h2>
+            <p class="text-lg font-semibold mb-6 text-green-600">A youth-led movement for a cleaner, greener Tanzania</p>
+            <p class="mb-6">
+              Born in <strong>Dar es Salaam, Tanzania</strong>, <em>THINK GREEN</em> transforms the belief that <em>“our environment is our home”</em> into action. What started as a small student club tackling local litter has grown into a vibrant, community-driven initiative empowering <strong>youth, children, women, and entire communities</strong> to create a sustainable future.
+            </p>
+            <div class="space-y-8" aria-label="Our initiatives">
+              <article class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold text-green-700">Youth Environmental Leadership</h3>
+                <p>Through events like <strong>ECOLEADERS RISE 2025</strong>, we inspire young changemakers with workshops, creative forums, and innovation sessions, turning their ideas into impactful climate action.</p>
+              </article>
+              <article class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold text-green-700">School Outreach & Education</h3>
+                <p>Our <strong>school-based environmental clubs</strong> bring tree planting, climate education, and eco-literacy to students, fostering green spaces that enhance learning, food security, and community well-being.</p>
+              </article>
+              <article class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold text-green-700">Community-Led Conservation</h3>
+                <p>We design <strong>community-based projects</strong>—from tree-planting campaigns to cleanups—that provide shade, nourishment, and dignity while uniting people to protect their environment.</p>
+              </article>
+              <article class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold text-green-700">Events, Advocacy & Recognition</h3>
+                <p>From environmental festivals to earning nominations like <strong>Environmental Champion at the TEYA Awards</strong>, we amplify youth voices on national stages, proving young people are powerful agents of change.</p>
+              </article>
+              <article class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold text-green-700">Partnerships for Impact</h3>
+                <p>We collaborate with partners like <strong>@globalplatform_tanzania</strong>, <strong>@climate.fresk.tanzania</strong>, and <strong>@africaforsdgs</strong> to scale our efforts and create transformative opportunities.</p>
+              </article>
+            </div>
+            <div class="mt-8">
+              <h3 class="text-2xl font-bold text-green-700">Our Vision</h3>
+              <p class="text-lg">
+                A <strong>sustainable Tanzania</strong> powered by bold young leaders and empowered communities—a world where environmental responsibility is a way of life. At <em>THINK GREEN TZ</em>, every small act, from planting a tree to sparking a conversation, fuels global change.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="media">
-          <img alt="Students learning about seedlings" src="https://images.unsplash.com/photo-1465406325903-9d93ee82f1a6?q=80&w=1200&auto=format&fit=crop" />
+          <div class="md:w-1/2">
+            <img alt="Students engaging in environmental activities" src="https://images.unsplash.com/photo-1465406325903-9d93ee82f1a6?q=80&w=1200&auto=format&fit=crop" class="rounded-lg shadow-lg w-full h-auto" />
+          </div>
         </div>
       </div>
     </section>
+
 
     <!-- PROGRAMS -->
     <section id="programs">
@@ -454,7 +682,7 @@
         <div class="text">
           <h2>Contact</h2>
           <p class="subhead">Let’s plant an idea together.</p>
-          <p class="tiny">Email: hello@thinkgreen.example · Phone/WhatsApp: +255 700 000 000 · Address: Your City, Your Country</p>
+          <p class="tiny">Email: hello@thinkgreentz.example · Phone/WhatsApp: +255 749 513 030 · Address: Dar es Salaam, Tanzania</p>
         </div>
         <div class="media">
           <div class="cards">
@@ -471,7 +699,7 @@
     <div class="container cols">
       <div class="col">
         <div class="brand"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22c5 0 9-4 9-9 0-4.5-3.5-8.5-8-8.9V2a1 1 0 0 0-2 0v2.1C6.5 4.5 3 8.5 3 13c0 5 4 9 9 9Z" stroke="#2dd477" stroke-width="1.5"/><path d="M8 14c1.5-3.5 4.5-5.5 8-6-2 2.5-3 5.5-3 9-1.5-1.5-3-2.5-5-3Z" fill="#10b981"/></svg><span>Think Green</span></div>
-        <p class="tiny">© <span id="y"></span> Think Green (Thinny). Plant today, save tomorrow.</p>
+        <p class="tiny">© <span id="y"></span> Think Green (Thinny). Our Environment, Our World.</p>
       </div>
       <div class="col">
         <h4>Explore</h4>
@@ -481,10 +709,10 @@
         <h4>Get involved</h4>
         <p class="tiny"><a href="#join">Volunteer</a> · <a href="#join">Donate</a> · <a href="#join">Partner</a></p>
       </div>
-      <div class="col">
+      <!--<div class="col">
         <h4>Follow</h4>
         <p class="tiny"><a href="#">Instagram</a> · <a href="#">YouTube</a> · <a href="#">Newsletter</a></p>
-      </div>
+      </div>-->
     </div>
     <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </footer>
@@ -494,20 +722,20 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Think Green",
+    "name": "Think Green Tz",
     "alternateName": "Thinny",
-    "url": "https://thinkgreen.example",
+    "url": "https://am3lue.github.io/thinkgreentz",
     "logo": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=400&auto=format&fit=crop",
     "sameAs": [
-      "https://instagram.com/thinkgreen",
-      "https://youtube.com/@thinkgreen"
+      "https://instagram.com/think.green.tz",
+      "https://youtube.com/@thinkgreentz"
     ],
     "description": "Think Green (Thinny) helps communities plant today and save tomorrow through reforestation, education, and circular economy programs.",
     "foundingDate": "2019",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer support",
-      "email": "hello@thinkgreen.example"
+      "email": "hello@thinkgreentz.example"
     }
   }
   </script>
