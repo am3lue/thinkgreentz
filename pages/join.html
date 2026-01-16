@@ -64,7 +64,24 @@
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                 </div>
-                <textarea name="message" placeholder="Tell us why you want to volunteer" rows="5" required></textarea>
+                <div style="margin: 1rem 0;">
+                    <label>What are you interested in?</label>
+                    <div class="inline" style="margin-top: 0.5rem;">
+                        <label><input type="checkbox" name="interest" value="tree-planting"> Tree Planting</label>
+                        <label><input type="checkbox" name="interest" value="community-outreach"> Community Outreach</label>
+                        <label><input type="checkbox" name="interest" value="event-planning"> Event Planning</label>
+                        <label><input type="checkbox" name="interest" value="education"> Education</label>
+                    </div>
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label>Your Availability:</label>
+                    <div class="inline" style="margin-top: 0.5rem;">
+                        <label><input type="radio" name="availability" value="weekends" checked> Weekends</label>
+                        <label><input type="radio" name="availability" value="weekdays"> Weekdays</label>
+                        <label><input type="radio" name="availability" value="flexible"> Flexible</label>
+                    </div>
+                </div>
+                <textarea name="skills" placeholder="Tell us about your skills and experience" rows="5" required></textarea>
                 <button type="submit" class="btn primary">Send</button>
             </form>
         </div>
