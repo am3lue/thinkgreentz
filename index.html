@@ -31,7 +31,9 @@
     function toggleMenu(){
       const links = document.querySelector('.nav-links');
       if(!links) return;
-      links.classList.toggle('active');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.gap = '10px';
     }
 
     function handleSignup(e){
@@ -82,7 +84,7 @@
           THINK GREEN is a bold, youth-led environmental organization rooted in Dar es Salaam, Tanzania, with a mission to inspire, educate, and empower communities toward a cleaner, greener, and more sustainable future.
         </p>
         <div class="hero-cta">
-          <a href="join.html" class="btn primary">Get Involved</a>
+          <a href="pages/join.html" class="btn primary">Get Involved</a>
           <a href="pages/about.html" class="btn">What makes us different</a>
         </div>
         <div class="hero-visual">
@@ -116,7 +118,7 @@
         </div>
         <div class="col">
           <h4>Follow Us</h4>
-          <a href="https://www.instagram.com/think.green.tz/" class="tiny">Instagram</a>
+          <a href="https://www.instagram.com/thinkgreen_tz/" class="tiny">Instagram</a>
         </div>
       </div>
     </div>
