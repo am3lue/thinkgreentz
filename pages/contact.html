@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Think Green Tanzania</title>
+  <meta name="description" content="Get in touch with Think Green (Thinny)." />
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <div class="brand" aria-label="Think Green home">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22c5 0 9-4 9-9 0-4.5-3.5-8.5-8-8.9V2a1 1 0 0 0-2 0v2.1C6.5 4.5 3 8.5 3 13c0 5 4 9 9 9Z" stroke="#2dd477" stroke-width="1.5"/><path d="M8 14c1.5-3.5 4.5-5.5 8-6-2 2.5-3 5.5-3 9-1.5-1.5-3-2.5-5-3Z" fill="#10b981"/></svg>
+        <span>Think Green</span>
+        <span class="badge">Our Environment, Our Home</span>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html" class="cta">Join Thinny</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section>
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p class="subhead">We'd love to hear from you. Reach out with questions, partnership ideas, or just to say hello.</p>
+        <form class="needs-validate">
+          <div class="inline">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="btn primary">Send Message</button>
+          <div id="signup-output"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
