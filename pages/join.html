@@ -60,29 +60,54 @@
             <h2>Become a Volunteer</h2>
             <p class="subhead">Fill out the form below to express your interest in volunteering with us.</p>
             <form action="https://formspree.io/f/ilakizar@gmail.com" method="POST">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" required>
+
+                <label for="dob">Age / Date of Birth</label>
+                <input type="text" id="dob" name="dob" required>
+
+                <label for="location">Location / City</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">WhatsApp / Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="availability">Availability (Hours per week)</label>
+                <input type="text" id="availability" name="availability" required>
+
+                <label>Areas of Interest</label>
                 <div class="inline">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <label><input type="checkbox" name="interest" value="tree-planting"> Tree Planting</label>
+                    <label><input type="checkbox" name="interest" value="waste-management"> Waste Management</label>
+                    <label><input type="checkbox" name="interest" value="education"> Education</label>
                 </div>
-                <div style="margin: 1rem 0;">
-                    <label>What are you interested in?</label>
-                    <div class="inline" style="margin-top: 0.5rem;">
-                        <label><input type="checkbox" name="interest" value="tree-planting"> Tree Planting</label>
-                        <label><input type="checkbox" name="interest" value="community-outreach"> Community Outreach</label>
-                        <label><input type="checkbox" name="interest" value="event-planning"> Event Planning</label>
-                        <label><input type="checkbox" name="interest" value="education"> Education</label>
-                    </div>
+
+                <label for="skills">Relevant Skills (e.g., Photography, Graphic Design, Science)</label>
+                <input type="text" id="skills" name="skills">
+
+                <label>Language Proficiency</label>
+                <div class="inline">
+                    <label><input type="checkbox" name="language" value="swahili"> Swahili</label>
+                    <label><input type="checkbox" name="language" value="english"> English</label>
                 </div>
-                <div style="margin: 1rem 0;">
-                    <label>Your Availability:</label>
-                    <div class="inline" style="margin-top: 0.5rem;">
-                        <label><input type="radio" name="availability" value="weekends" checked> Weekends</label>
-                        <label><input type="radio" name="availability" value="weekdays"> Weekdays</label>
-                        <label><input type="radio" name="availability" value="flexible"> Flexible</label>
-                    </div>
+
+                <label for="motivation">Motivation Statement ("Why join Think Green?")</label>
+                <textarea id="motivation" name="motivation" rows="5" required></textarea>
+
+                <label for="emergency-contact">Emergency Contact Information</label>
+                <input type="text" id="emergency-contact" name="emergency-contact" required>
+
+                <label for="health-info">Health / Allergy Information for field work</label>
+                <textarea id="health-info" name="health-info" rows="3"></textarea>
+
+                <div class="inline">
+                    <label><input type="checkbox" name="agreement" value="agreed" required> I agree to the Code of Conduct and Liability Waiver.</label>
                 </div>
-                <textarea name="skills" placeholder="Tell us about your skills and experience" rows="5" required></textarea>
-                <button type="submit" class="btn primary">Send</button>
+
+                <button type="submit" class="btn primary">Submit Application</button>
             </form>
         </div>
     </section>
