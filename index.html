@@ -31,9 +31,7 @@
     function toggleMenu(){
       const links = document.querySelector('.nav-links');
       if(!links) return;
-      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-      links.style.flexDirection = 'column';
-      links.style.gap = '10px';
+      links.classList.toggle('active');
     }
 
     function handleSignup(e){

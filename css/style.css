@@ -314,6 +314,20 @@
       .hero-grid, .cards, .split, .cols, .testimonials, .gallery { grid-template-columns: 1fr; }
       .card, .quote, .col, .hero h1, .hero p, .hero-cta, .hero-visual, .split > .text, .split > .media { grid-column: 1 / -1; }
       .metrics { grid-template-columns: repeat(2, 1fr); }
-      .nav-links { display:none; }
+      .nav-links { 
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 1rem 0;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
       .hamburger { display:block; }
     }
