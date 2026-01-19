@@ -1,0 +1,77 @@
+[
+  {
+    "image": "../images/2026-leaders.gif",
+    "title": "The Election of new Think green Tz Lead",
+    "info": "Welcoming of the new Think green Tz Leaders who will be leading the organization to greater heights in environmental conservation and sustainability efforts across Tanzania.",
+    "links": [
+      {
+        "text": "Read Full Article",
+        "url": "#article-5"
+      },
+      {
+        "text": "Share",
+        "url": "#"
+      }
+    ]
+  },
+  {
+    "image": "../images/plastic.png",
+    "title": "Youth and Environmental Action",
+    "info": "Young people are leading the charge in environmental conservation. Discover how youth organizations across Tanzania are mobilizing communities and driving systemic change for a sustainable future.",
+    "links": [
+      {
+        "text": "Read Full Article",
+        "url": "#article-4"
+      },
+      {
+        "text": "Share",
+        "url": "#"
+      }
+    ]
+  },
+  {
+    "image": "../images/sun.png",
+    "title": "Conservation Success Stories",
+    "info": "Meet the communities and organizations making real changes. From protecting wildlife habitats to reforestation projects, these inspiring stories show how collective action can restore our environment.",
+    "links": [
+      {
+        "text": "Read Full Article",
+        "url": "#article-3"
+      },
+      {
+        "text": "Share",
+        "url": "#"
+      }
+    ]
+  },
+  {
+    "image": "../images/award.png",
+    "title": "Sustainable Living: Small Steps, Big Impact",
+    "info": "Making a difference doesn't require drastic changes. From reducing plastic use to supporting local farmers, discover simple ways to live sustainably and contribute to a greener Tanzania.",
+    "links": [
+      {
+        "text": "Read Full Article",
+        "url": "#article-2"
+      },
+      {
+        "text": "Share",
+        "url": "#"
+      }
+    ]
+  },
+  {
+    "image": "../images/afforestation.png",
+    "title": "Understanding Climate Change in Tanzania",
+    "info": "Climate change is one of the most pressing issues facing our planet today. In Tanzania, rising temperatures and unpredictable rainfall patterns are affecting agriculture and our ecosystems. Learn more about the impact and what we can do to help.",
+    "links": [
+      {
+        "text": "Read Full Article",
+        "url": "#article-1"
+      },
+      {
+        "text": "Share",
+        "url": "#"
+      }
+    ]
+  }
+]
