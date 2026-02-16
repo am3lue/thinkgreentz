@@ -1,5 +1,20 @@
 [
   {
+    "image": "../images/valentine -poster.png",
+    "title": "Green Valentine: Love the Planet This February",
+    "info": "This Valentine's Day, let's celebrate love in its purest form — love for our environment. At Think Green Tanzania, we believe that caring for our planet is the greatest act of love. From planting trees together to reducing waste, every eco-friendly gesture is a gift to Mother Earth. Join us in spreading green love this February and throughout the year.",
+    "links": [
+      {
+        "text": "Read Full Article",
+        "url": "https://drive.google.com/file/d/1TFDR9fB5uq1N3TGMihN56_NugdqD1CUU/view"
+      },
+      {
+        "text": "Share",
+        "url": "https://drive.google.com/file/d/1TFDR9fB5uq1N3TGMihN56_NugdqD1CUU/view"
+      }
+    ]
+  },
+  {
     "image": "../images/back-together-after-the-holidays-with-the-alpha-high-school-eco-club.gif",
     "title": "Back together after the holidays with the Alpha High School Eco Club 🌿",
     "info": "This first session back was filled with energy, honest conversations, and a shared commitment to the environment. Seeing students return motivated, ready to learn, and eager to take action reminded us that real change starts with consistency and community. As we reconnect, plan ahead, and set intentions for the year, we’re stepping into a season of stronger environmental awareness, conservation efforts, and meaningful stewardship driven by passionate young leaders shaping a greener future",
@@ -10,7 +25,7 @@
       },
       {
         "text": "Share",
-        "url": "https://drive.google.com/file/d/1TFDR9fB5uq1N3TGMihN56_NugdqD1CUU/view?usp=sharing"
+        "url": "#"
       }
     ]
   },
