@@ -1,6 +1,6 @@
-[
+export const BLOG_DATA = [
   {
-    "image": "../images/valentine -poster.png",
+    "image": "/images/valentine -poster.png",
     "title": "Green Valentine: Love the Planet This February",
     "info": "This Valentine's Day, let's celebrate love in its purest form — love for our environment. At Think Green Tanzania, we believe that caring for our planet is the greatest act of love. From planting trees together to reducing waste, every eco-friendly gesture is a gift to Mother Earth. Join us in spreading green love this February and throughout the year.",
     "links": [
@@ -15,13 +15,13 @@
     ]
   },
   {
-    "image": "../images/back-together-after-the-holidays-with-the-alpha-high-school-eco-club.gif",
+    "image": "/images/back-together-after-the-holidays-with-the-alpha-high-school-eco-club.gif",
     "title": "Back together after the holidays with the Alpha High School Eco Club 🌿",
     "info": "This first session back was filled with energy, honest conversations, and a shared commitment to the environment. Seeing students return motivated, ready to learn, and eager to take action reminded us that real change starts with consistency and community. As we reconnect, plan ahead, and set intentions for the year, we’re stepping into a season of stronger environmental awareness, conservation efforts, and meaningful stewardship driven by passionate young leaders shaping a greener future",
     "links": [
       {
         "text": "Read Full Article",
-        "url": "#article-6"
+        "url": "#"
       },
       {
         "text": "Share",
@@ -30,13 +30,13 @@
     ]
   },
   {
-    "image": "../images/2026-leaders.gif",
+    "image": "/images/2026-leaders.gif",
     "title": "The Election of new Think green Tz Lead",
     "info": "Welcoming of the new Think green Tz Leaders who will be leading the organization to greater heights in environmental conservation and sustainability efforts across Tanzania.",
     "links": [
       {
         "text": "Read Full Article",
-        "url": "#article-5"
+        "url": "#"
       },
       {
         "text": "Share",
@@ -45,13 +45,13 @@
     ]
   },
   {
-    "image": "../images/plastic.png",
+    "image": "/images/plastic.png",
     "title": "Youth and Environmental Action",
     "info": "Young people are leading the charge in environmental conservation. Discover how youth organizations across Tanzania are mobilizing communities and driving systemic change for a sustainable future.",
     "links": [
       {
         "text": "Read Full Article",
-        "url": "#article-4"
+        "url": "#"
       },
       {
         "text": "Share",
@@ -60,13 +60,13 @@
     ]
   },
   {
-    "image": "../images/sun.png",
+    "image": "/images/sun.png",
     "title": "Conservation Success Stories",
     "info": "Meet the communities and organizations making real changes. From protecting wildlife habitats to reforestation projects, these inspiring stories show how collective action can restore our environment.",
     "links": [
       {
         "text": "Read Full Article",
-        "url": "#article-3"
+        "url": "#"
       },
       {
         "text": "Share",
@@ -75,13 +75,13 @@
     ]
   },
   {
-    "image": "../images/award.png",
+    "image": "/images/award.png",
     "title": "Sustainable Living: Small Steps, Big Impact",
     "info": "Making a difference doesn't require drastic changes. From reducing plastic use to supporting local farmers, discover simple ways to live sustainably and contribute to a greener Tanzania.",
     "links": [
       {
         "text": "Read Full Article",
-        "url": "#article-2"
+        "url": "#"
       },
       {
         "text": "Share",
@@ -90,13 +90,13 @@
     ]
   },
   {
-    "image": "../images/afforestation.png",
+    "image": "/images/afforestation.png",
     "title": "Understanding Climate Change in Tanzania",
     "info": "Climate change is one of the most pressing issues facing our planet today. In Tanzania, rising temperatures and unpredictable rainfall patterns are affecting agriculture and our ecosystems. Learn more about the impact and what we can do to help.",
     "links": [
       {
         "text": "Read Full Article",
-        "url": "#article-1"
+        "url": "#"
       },
       {
         "text": "Share",
@@ -104,4 +104,4 @@
       }
     ]
   }
-]
+];
