@@ -481,7 +481,9 @@ useReveal()
               <div v-for="(item, index) in currentList" :key="item.id" class="admin-item">
                 <img v-if="item.image" :src="item.image" alt="Thumb">
                 <div v-else-if="currentTab === 'events'" class="event-icon">📅</div>
-                <div v-else-if="currentTab === 'certificates'" class="event-icon">🏅</div>
+                <div v-else-if="currentTab === 'certificates' && certQrCodes[item.id]" class="qr-thumb">
+                  <img :src="certQrCodes[item.id]" alt="QR">
+                </div>
                 <div v-else class="event-icon">📄</div>
                 
                 <div class="admin-item-info">
@@ -502,6 +504,7 @@ useReveal()
                       <button class="order-btn" @click="moveItem(index, 'down', currentTab)" :disabled="index === currentList.length - 1" title="Move Down">▼</button>
                     </div>
                     
+                    <a v-if="currentTab === 'certificates' && certQrCodes[item.id]" :href="certQrCodes[item.id]" download="thinkgreen-qr.png" class="qr-dl-btn-list">Download QR</a>
                     <button class="delete-btn" @click="deleteItem(item.id, currentTab)">Delete</button>
                 </div>
               </div>
@@ -629,6 +632,43 @@ textarea {
   background: #374151;
   border-radius: 8px;
   font-size: 1.5rem;
+}
+
+.qr-thumb {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  background: #0c1210;
+  border-radius: 8px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.qr-dl-btn-list {
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.qr-dl-btn-list:hover {
+  background: var(--accent);
+  color: #000;
 }
 
 .admin-item-info {
