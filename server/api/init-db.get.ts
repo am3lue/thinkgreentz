@@ -21,6 +21,7 @@ export default defineEventHandler(async (event) => {
         info TEXT NOT NULL,
         link_text TEXT,
         link_url TEXT,
+        links TEXT,
         sort_order INTEGER DEFAULT 0,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
@@ -69,9 +70,52 @@ export default defineEventHandler(async (event) => {
       )
     `)
 
-    // Attempt to add sort_order to existing tables if they were created previously
+    // Attempt to add columns to existing tables (safe migrations)
     try { await db.execute('ALTER TABLE gallery ADD COLUMN sort_order INTEGER DEFAULT 0') } catch (e) {}
     try { await db.execute('ALTER TABLE blog ADD COLUMN sort_order INTEGER DEFAULT 0') } catch (e) {}
+    try { await db.execute("ALTER TABLE blog ADD COLUMN links TEXT DEFAULT '[]'") } catch (e) {}
+
+    // Form submission tables
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS volunteer_applications (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        full_name TEXT NOT NULL,
+        dob TEXT,
+        location TEXT,
+        email TEXT NOT NULL,
+        phone TEXT,
+        availability TEXT,
+        interests TEXT,
+        skills TEXT,
+        languages TEXT,
+        motivation TEXT,
+        emergency_contact TEXT,
+        health_info TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS contact_messages (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        message TEXT NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
+    // Certificates table
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS certificates (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        participant_name TEXT NOT NULL,
+        event_name TEXT,
+        issue_date TEXT NOT NULL,
+        verification_code TEXT UNIQUE NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
 
     // Check if any admins exist
     const adminsCount = await db.execute('SELECT COUNT(*) as count FROM admins')

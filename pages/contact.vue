@@ -20,16 +20,28 @@ const status = ref({
 
 useReveal()
 
-const handleSubmit = () => {
-  if (form.value.name && form.value.email && /@/.test(form.value.email)) {
+const handleSubmit = async () => {
+  if (!form.value.name || !form.value.email || !/@/.test(form.value.email)) {
+    status.value = {
+      message: 'Please enter a valid name and email.',
+      color: '#fca5a5'
+    }
+    return
+  }
+
+  try {
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: form.value
+    })
     status.value = {
       message: `Thanks, ${form.value.name}! We'll reach out at ${form.value.email}.`,
       color: '#bbf7d0'
     }
     form.value = { name: '', email: '', message: '' }
-  } else {
+  } catch (e) {
     status.value = {
-      message: 'Please enter a valid name and email.',
+      message: 'Failed to send message. Please try again.',
       color: '#fca5a5'
     }
   }

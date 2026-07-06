@@ -90,11 +90,10 @@ export default defineEventHandler(async (event) => {
     // Insert blog data
     for (let i = 0; i < blogData.length; i++) {
       const item = blogData[blogData.length - 1 - i];
-      const linkText = item.links && item.links.length > 0 ? item.links[0].text : null
-      const linkUrl = item.links && item.links.length > 0 ? item.links[0].url : null
+      const linksJson = item.links && item.links.length > 0 ? JSON.stringify(item.links) : null
       await db.execute({
-        sql: 'INSERT INTO blog (image, title, info, link_text, link_url, sort_order) VALUES (?, ?, ?, ?, ?, ?)',
-        args: [item.image, item.title, item.info, linkText, linkUrl, i]
+        sql: 'INSERT INTO blog (image, title, info, links, sort_order) VALUES (?, ?, ?, ?, ?)',
+        args: [item.image, item.title, item.info, linksJson, i]
       })
     }
 

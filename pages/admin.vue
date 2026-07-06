@@ -1,4 +1,6 @@
 <script setup>
+import QRCode from 'qrcode'
+
 const config = useRuntimeConfig()
 const currentTab = ref('gallery')
 const imgbbKey = ref(config.public.imgbbApiKey || '')
@@ -51,12 +53,14 @@ const { data: galleryItems, refresh: refreshGallery } = await useAsyncData('gall
 const { data: blogItems, refresh: refreshBlog } = await useAsyncData('blog', () => isAuthenticated.value ? $fetch('/api/blog') : Promise.resolve([]), { watch: [isAuthenticated] })
 const { data: programsItems, refresh: refreshPrograms } = await useAsyncData('programs', () => isAuthenticated.value ? $fetch('/api/programs') : Promise.resolve([]), { watch: [isAuthenticated] })
 const { data: eventsItems, refresh: refreshEvents } = await useAsyncData('events', () => isAuthenticated.value ? $fetch('/api/events') : Promise.resolve([]), { watch: [isAuthenticated] })
+const { data: certificatesItems, refresh: refreshCertificates } = await useAsyncData('certificates', () => isAuthenticated.value ? $fetch('/api/certificates') : Promise.resolve([]), { watch: [isAuthenticated] })
 
 const refreshAll = () => {
   refreshGallery()
   refreshBlog()
   refreshPrograms()
   refreshEvents()
+  refreshCertificates()
 }
 
 // Forms
@@ -64,6 +68,28 @@ const galleryForm = ref({ alt: '', file: null })
 const blogForm = ref({ title: '', info: '', link: '', file: null })
 const programForm = ref({ title: '', info: '', file: null })
 const eventForm = ref({ title: '', description: '', link_url: '', start_time: '', end_time: '' })
+const certificateForm = ref({ participant_name: '', event_name: '', issue_date: new Date().toISOString().split('T')[0] })
+const isGeneratingCert = ref(false)
+const qrCodeDataUrl = ref('')
+const qrParticipant = ref('')
+const qrEvent = ref('')
+const qrCode = ref('')
+const qrVerifyUrl = ref('')
+const showQr = ref(false)
+
+const certQrCodes = ref({})
+
+watch(certificatesItems, async (items) => {
+  if (!items || items.length === 0) return
+  const map = {}
+  await Promise.all(items.map(async (item) => {
+    const url = `https://thinkgreentz.vercel.app/verify?code=${item.verification_code}`
+    try {
+      map[item.id] = await QRCode.toDataURL(url, { width: 200, margin: 1, color: { dark: '#2dd477', light: '#0c1210' } })
+    } catch {}
+  }))
+  certQrCodes.value = map
+}, { immediate: true })
 
 // Previews
 const galleryPreview = ref(null)
@@ -178,6 +204,7 @@ const deleteItem = async (id, type) => {
       if (type === 'blog') await refreshBlog()
       if (type === 'programs') await refreshPrograms()
       if (type === 'events') await refreshEvents()
+      if (type === 'certificates') await refreshCertificates()
     } catch (e) {
       alert('Failed to delete: ' + e.message)
     }
@@ -224,8 +251,42 @@ const currentList = computed(() => {
   if (currentTab.value === 'blog') return blogItems.value
   if (currentTab.value === 'programs') return programsItems.value
   if (currentTab.value === 'events') return eventsItems.value
+  if (currentTab.value === 'certificates') return certificatesItems.value
   return []
 })
+
+const generateCertificate = async () => {
+  if (!certificateForm.value.participant_name) {
+    alert('Please enter the participant name.')
+    return
+  }
+
+  isGeneratingCert.value = true
+  try {
+    const res = await $fetch('/api/certificates', {
+      method: 'POST',
+      body: certificateForm.value
+    })
+
+    qrCode.value = res.verification_code
+    qrParticipant.value = res.participant_name
+    qrEvent.value = res.event_name || ''
+    qrVerifyUrl.value = res.verification_url
+
+    qrCodeDataUrl.value = await QRCode.toDataURL(res.verification_url, {
+      width: 400,
+      margin: 2,
+      color: { dark: '#2dd477', light: '#0c1210' }
+    })
+
+    showQr.value = true
+    await refreshCertificates()
+  } catch (e) {
+    alert('Failed to generate: ' + (e.data?.message || e.message))
+  } finally {
+    isGeneratingCert.value = false
+  }
+}
 
 useReveal()
 </script>
@@ -271,6 +332,7 @@ useReveal()
         <div class="tab" :class="{ active: currentTab === 'blog' }" @click="currentTab = 'blog'">Blog</div>
         <div class="tab" :class="{ active: currentTab === 'programs' }" @click="currentTab = 'programs'">Programs</div>
         <div class="tab" :class="{ active: currentTab === 'events' }" @click="currentTab = 'events'">Happenings (Events)</div>
+        <div class="tab" :class="{ active: currentTab === 'certificates' }" @click="currentTab = 'certificates'">Certificates</div>
       </div>
 
       <!-- GALLERY MANAGER -->
@@ -375,26 +437,67 @@ useReveal()
         </button>
       </div>
       
+      <!-- CERTIFICATES QR GENERATOR -->
+      <div v-else-if="currentTab === 'certificates'" class="admin-card">
+        <h3>Generate QR Code</h3>
+        <p class="subhead">Enter the participant's name and get a QR code linking to their verification page.</p>
+        <div class="form-group">
+          <label>Participant Name *</label>
+          <input type="text" v-model="certificateForm.participant_name" placeholder="e.g., John Doe" required>
+        </div>
+        <div class="form-group">
+          <label>Event / Purpose (optional)</label>
+          <input type="text" v-model="certificateForm.event_name" placeholder="e.g., Green Saturday 2025">
+        </div>
+        <div class="form-group">
+          <label>Issue Date</label>
+          <input type="date" v-model="certificateForm.issue_date">
+        </div>
+        <button class="btn primary" @click="generateCertificate" :disabled="isGeneratingCert">
+          {{ isGeneratingCert ? 'Generating...' : 'Generate QR Code' }}
+        </button>
+
+        <div v-if="showQr" style="margin-top: 32px; padding: 24px; background: rgba(45,212,119,0.05); border-radius: 16px; border: 1px solid rgba(45,212,119,0.2); text-align: center;">
+          <p style="color: var(--accent); font-weight: 600; margin-bottom: 16px;">Scan to verify</p>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+            <div style="background: #0c1210; padding: 8px; border-radius: 12px; display: inline-block;">
+              <img :src="qrCodeDataUrl" alt="QR Code" style="width: 180px; height: 180px; display: block;">
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 700;">{{ qrParticipant }}</p>
+            <p v-if="qrEvent" style="color: var(--muted);">{{ qrEvent }}</p>
+            <p style="font-family: monospace; color: var(--accent); font-size: 0.9rem;">{{ qrCode }}</p>
+            <a :href="qrCodeDataUrl" download="thinkgreen-qr.png" class="btn primary" style="justify-content: center; min-width: 180px;">
+              Download QR Code
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!-- LIST MANAGER -->
       <div class="admin-card">
           <h3>Published Items</h3>
-          <p class="tiny" v-if="currentTab !== 'events'" style="margin-bottom:16px;">Use the arrows to reorder items. The top item appears first.</p>
+          <p class="tiny" v-if="currentTab !== 'events' && currentTab !== 'certificates'" style="margin-bottom:16px;">Use the arrows to reorder items. The top item appears first.</p>
           <div class="items-container">
               <div v-for="(item, index) in currentList" :key="item.id" class="admin-item">
                 <img v-if="item.image" :src="item.image" alt="Thumb">
-                <div v-else class="event-icon">📅</div>
+                <div v-else-if="currentTab === 'events'" class="event-icon">📅</div>
+                <div v-else-if="currentTab === 'certificates'" class="event-icon">🏅</div>
+                <div v-else class="event-icon">📄</div>
                 
                 <div class="admin-item-info">
-                    <strong>{{ item.title || item.alt }}</strong>
-                    <p class="tiny">{{ (item.info || item.description || '').substring(0, 50) }}...</p>
+                    <strong>{{ item.title || item.alt || item.participant_name }}</strong>
+                    <p class="tiny">{{ (item.info || item.description || item.event_name || '').substring(0, 50) }}...</p>
                     <p v-if="currentTab === 'events'" class="tiny" style="color:var(--accent)">
                       Ends: {{ new Date(item.end_time).toLocaleString() }}
+                    </p>
+                    <p v-if="currentTab === 'certificates'" class="tiny" style="color:var(--accent); font-family: monospace;">
+                      {{ item.verification_code }}
                     </p>
                 </div>
                 
                 <div class="admin-item-actions">
                     <!-- Ordering Controls -->
-                    <div v-if="currentTab !== 'events'" class="order-controls">
+                    <div v-if="currentTab !== 'events' && currentTab !== 'certificates'" class="order-controls">
                       <button class="order-btn" @click="moveItem(index, 'up', currentTab)" :disabled="index === 0" title="Move Up">▲</button>
                       <button class="order-btn" @click="moveItem(index, 'down', currentTab)" :disabled="index === currentList.length - 1" title="Move Down">▼</button>
                     </div>

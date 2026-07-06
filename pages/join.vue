@@ -35,15 +35,19 @@ const isSuccess = ref(false)
 
 const submitApplication = async () => {
   isSubmitting.value = true
-  
-  // Simulate an API call to a backend
-  await new Promise(resolve => setTimeout(resolve, 1200))
-  
-  isSubmitting.value = false
-  isSuccess.value = true
-  
-  // Optional: Reset form or scroll to top
-  window.scrollTo({ top: document.getElementById('volunteer-form-section').offsetTop - 100, behavior: 'smooth' })
+
+  try {
+    await $fetch('/api/volunteer', {
+      method: 'POST',
+      body: form.value
+    })
+    isSuccess.value = true
+    window.scrollTo({ top: document.getElementById('volunteer-form-section').offsetTop - 100, behavior: 'smooth' })
+  } catch (e) {
+    alert('Failed to submit application: ' + (e.data?.message || e.message))
+  } finally {
+    isSubmitting.value = false
+  }
 }
 
 const resetForm = () => {

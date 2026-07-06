@@ -7,12 +7,11 @@ export default defineEventHandler(async (event) => {
     return createError({ statusCode: 400, message: 'Missing required fields' })
   }
 
-  const linkText = body.links && body.links.length > 0 ? body.links[0].text : null
-  const linkUrl = body.links && body.links.length > 0 ? body.links[0].url : null
+  const linksJson = body.links && body.links.length > 0 ? JSON.stringify(body.links) : null
 
   await db.execute({
-    sql: 'INSERT INTO blog (image, title, info, link_text, link_url) VALUES (?, ?, ?, ?, ?)',
-    args: [body.image, body.title, body.info, linkText, linkUrl]
+    sql: 'INSERT INTO blog (image, title, info, links) VALUES (?, ?, ?, ?)',
+    args: [body.image, body.title, body.info, linksJson]
   })
 
   return { success: true }
